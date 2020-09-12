@@ -541,6 +541,48 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			$last_updated_timestamp = strtotime( $plugin['last_updated'] );
 		?>
 		<div class="plugin-card plugin-card-<?php echo sanitize_html_class( $plugin['slug'] ); ?>">
+<<<<<<< HEAD
+=======
+			<?php
+			if ( ! $compatible_php || ! $compatible_wp ) {
+				echo '<div class="notice inline notice-error notice-alt"><p>';
+				if ( ! $compatible_php && ! $compatible_wp ) {
+					_e( 'This plugin doesn&#8217;t work with your versions of WordPress and PHP. ' );
+					if ( current_user_can( 'update_core' ) ) {
+						printf(
+							/* translators: 1: "Update WordPress" screen URL, 2: "Updating PHP" page URL */
+							__( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
+							self_admin_url( 'update-core.php' ),
+							esc_url( __( 'https://wordpress.org/support/update-php/' ) )
+						);
+					} else {
+						printf(
+							/* translators: %s: "Updating PHP" page URL */
+							__( '<a href="%s">Learn more about updating PHP</a>.' ),
+							esc_url( __( 'https://wordpress.org/support/update-php/' ) )
+						);
+					}
+				} elseif ( ! $compatible_wp ) {
+					_e( 'This plugin doesn&#8217;t work with your version of WordPress. ' );
+					if ( current_user_can( 'update_core' ) ) {
+						printf(
+							/* translators: %s: "Update WordPress" screen URL */
+							__( '<a href="%s">Please update WordPress</a>.' ),
+							self_admin_url( 'update-core.php' )
+						);
+					}
+				} elseif ( ! $compatible_php ) {
+					_e( 'This plugin doesn&#8217;t work with your version of PHP. ' );
+					printf(
+						/* translators: %s: "Updating PHP" page URL */
+						__( '<a href="%s">Learn more about updating PHP</a>.' ),
+						esc_url( __( 'https://wordpress.org/support/update-php/' ) )
+					);
+				}
+				echo '</p></div>';
+			}
+			?>
+>>>>>>> 6d8e3c5864... Plugins: Use newer "Updating PHP" page URL in the notice displayed when a plugin requires a higher PHP version.
 			<div class="plugin-card-top">
 				<div class="name column-name">
 					<h3>
