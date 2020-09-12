@@ -501,7 +501,24 @@ function map_meta_cap( $cap, $user_id ) {
 		if ( ! $tax ) {
 			$caps[] = 'do_not_allow';
 			break;
+<<<<<<< HEAD
 		}
+=======
+		case 'upgrade_php':
+			if ( is_multisite() && ! is_super_admin( $user_id ) ) {
+				$caps[] = 'do_not_allow';
+			} else {
+				$caps[] = 'update_core';
+			}
+			break;
+		default:
+			// Handle meta capabilities for custom post types.
+			global $post_type_meta_caps;
+			if ( isset( $post_type_meta_caps[ $cap ] ) ) {
+				$args = array_merge( array( $post_type_meta_caps[ $cap ], $user_id ), $args );
+				return call_user_func_array( 'map_meta_cap', $args );
+			}
+>>>>>>> 5f56921131... General: Introduce dashboard widget to inform administrators about outdated PHP versions.
 
 		if ( 'delete_term' === $cap && ( $term->term_id == get_option( 'default_' . $term->taxonomy ) ) ) {
 			$caps[] = 'do_not_allow';
