@@ -1068,7 +1068,13 @@ function do_meta_boxes( $screen, $context, $object ) {
 						echo '<span class="toggle-indicator" aria-hidden="true"></span>';
 						echo '</button>';
 					}
-					echo "<h2 class='hndle'><span>{$box['title']}</span></h2>\n";
+					echo '<h2 class="hndle">';
+					if ( 'dashboard_php_nag' === $box['id'] ) {
+						echo '<span aria-hidden="true" class="dashicons dashicons-warning"></span>';
+						echo '<span class="screen-reader-text">' . __( 'Warning:' ) . ' </span>';
+					}
+					echo "<span>{$box['title']}</span>";
+					echo "</h2>\n";
 					echo '<div class="inside">' . "\n";
 					call_user_func($box['callback'], $object, $box);
 					echo "</div>\n";
@@ -2052,6 +2058,7 @@ function _wp_admin_html_begin() {
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]>
+<<<<<<< HEAD
 <html xmlns="http://www.w3.org/1999/xhtml" class="ie8 <?php echo $admin_html_class; ?>" <?php
 	/**
 	 * Fires inside the HTML tag in the admin header.
@@ -2066,6 +2073,26 @@ function _wp_admin_html_begin() {
 	/** This action is documented in wp-admin/includes/template.php */
 	do_action( 'admin_xml_ns' );
 ?> <?php language_attributes(); ?>>
+=======
+<html xmlns="http://www.w3.org/1999/xhtml" class="ie8 <?php echo $admin_html_class; ?>"
+																	<?php
+																	/**
+																	 * Fires inside the HTML tag in the admin header.
+																	 *
+																	 * @since 2.2.0
+																	 */
+																	do_action( 'admin_xml_ns' );
+?>
+	<?php language_attributes(); ?>>
+<![endif]-->
+<!--[if !(IE 8) ]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" class="<?php echo $admin_html_class; ?>"
+																<?php
+																/** This action is documented in wp-admin/includes/template.php */
+																do_action( 'admin_xml_ns' );
+?>
+	<?php language_attributes(); ?>>
+>>>>>>> 41b6e0da34... General: Implement editorial, design and accessibility feedback for the PHP version nag.
 <!--<![endif]-->
 <head>
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php echo get_option('blog_charset'); ?>" />
