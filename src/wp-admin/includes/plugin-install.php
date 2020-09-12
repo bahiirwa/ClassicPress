@@ -740,7 +740,7 @@ function install_plugin_information() {
 
 	if ( ! $tested_wp ) {
 		echo '<div class="notice notice-warning notice-alt"><p>';
-		_e( '<strong>Warning:</strong> This plugin <strong>has not been tested</strong> with your current version of WordPress.' );
+		_e( '<strong>Warning:</strong> This plugin <strong>has not been tested</strong> with your current version of ClassicPress.' );
 		echo '</p></div>';
 	} elseif ( ! $compatible_wp ) {
 		echo '<div class="notice notice-error notice-alt"><p>';

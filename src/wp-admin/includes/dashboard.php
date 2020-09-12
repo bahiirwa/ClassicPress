@@ -1354,16 +1354,16 @@ function wp_dashboard_php_nag() {
 	}
 
 	if ( isset( $response['is_secure'] ) && ! $response['is_secure'] ) {
-		$msg = __( 'WordPress has detected that your site is running on an insecure version of PHP.' );
+		$msg = __( 'ClassicPress has detected that your site is running on an insecure version of PHP.' );
 	} else {
-		$msg = __( 'WordPress has detected that your site is running on an outdated version of PHP.' );
+		$msg = __( 'ClassicPress has detected that your site is running on an outdated version of PHP.' );
 	}
 
 	?>
 	<p><?php echo $msg; ?></p>
 
 	<h3><?php _e( 'What is PHP and how does it affect my site?' ); ?></h3>
-	<p><?php _e( 'PHP is the programming language we use to build and maintain WordPress. Newer versions of PHP are both faster and more secure, so updating will have a positive effect on your site’s performance.' ); ?></p>
+	<p><?php _e( 'PHP is the programming language we use to build and maintain ClassicPress. Newer versions of PHP are both faster and more secure, so updating will have a positive effect on your site’s performance.' ); ?></p>
 
 	<p class="button-container">
 		<?php
@@ -1427,10 +1427,10 @@ function wp_check_php_version() {
 
 		/**
 		 * Response should be an array with:
-		 *  'recommended_version' - string - The PHP version recommended by WordPress.
+		 *  'recommended_version' - string - The PHP version recommended by ClassicPress.
 		 *  'is_supported' - boolean - Whether the PHP version is actively supported.
 		 *  'is_secure' - boolean - Whether the PHP version receives security updates.
-		 *  'is_acceptable' - boolean - Whether the PHP version is still acceptable for WordPress.
+		 *  'is_acceptable' - boolean - Whether the PHP version is still acceptable for ClassicPress.
 		 */
 		$response = json_decode( wp_remote_retrieve_body( $response ), true );
 
