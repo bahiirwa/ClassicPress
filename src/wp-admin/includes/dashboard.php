@@ -186,13 +186,9 @@ function wp_add_dashboard_widget( $widget_id, $widget_name, $callback, $control_
 
 	$high_priority_widgets = array( 'dashboard_browser_nag', 'dashboard_php_nag' );
 
-	$priority = 'core';
-<<<<<<< HEAD
-	if ( 'dashboard_browser_nag' === $widget_id )
-=======
 	if ( in_array( $widget_id, $high_priority_widgets, true ) ) {
->>>>>>> 5f56921131... General: Introduce dashboard widget to inform administrators about outdated PHP versions.
 		$priority = 'high';
+	}
 
 	add_meta_box( $widget_id, $widget_name, $callback, $screen, $location, $priority, $callback_args );
 }

@@ -541,8 +541,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 			$last_updated_timestamp = strtotime( $plugin['last_updated'] );
 		?>
 		<div class="plugin-card plugin-card-<?php echo sanitize_html_class( $plugin['slug'] ); ?>">
-<<<<<<< HEAD
-=======
+
 			<?php
 			if ( ! $compatible_php || ! $compatible_wp ) {
 				echo '<div class="notice inline notice-error notice-alt"><p>';
@@ -593,7 +592,7 @@ class WP_Plugin_Install_List_Table extends WP_List_Table {
 				echo '</p></div>';
 			}
 			?>
->>>>>>> 6d8e3c5864... Plugins: Use newer "Updating PHP" page URL in the notice displayed when a plugin requires a higher PHP version.
+			
 			<div class="plugin-card-top">
 				<div class="name column-name">
 					<h3>

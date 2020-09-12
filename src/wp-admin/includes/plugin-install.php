@@ -717,12 +717,6 @@ function install_plugin_information() {
 	<?php
 	$wp_version = get_bloginfo( 'version' );
 
-<<<<<<< HEAD
-	if ( ! empty( $api->tested ) && version_compare( substr( $wp_version, 0, strlen( $api->tested ) ), $api->tested, '>' ) ) {
-		echo '<div class="notice notice-warning notice-alt"><p>' . __( '<strong>Warning:</strong> This plugin has <strong>not been tested</strong> with your current version of ClassicPress.' ) . '</p></div>';
-	} elseif ( ! empty( $api->requires ) && version_compare( substr( $wp_version, 0, strlen( $api->requires ) ), $api->requires, '<' ) ) {
-		echo '<div class="notice notice-warning notice-alt"><p>' . __( '<strong>Warning:</strong> This plugin has <strong>not been marked as compatible</strong> with your version of ClassicPress.' ) . '</p></div>';
-=======
 	$compatible_php = ( empty( $api->requires_php ) || version_compare( substr( phpversion(), 0, strlen( $api->requires_php ) ), $api->requires_php, '>=' ) );
 	$tested_wp      = ( empty( $api->tested ) || version_compare( substr( $wp_version, 0, strlen( $api->tested ) ), $api->tested, '<=' ) );
 	$compatible_wp  = ( empty( $api->requires ) || version_compare( substr( $wp_version, 0, strlen( $api->requires ) ), $api->requires, '>=' ) );
@@ -750,16 +744,15 @@ function install_plugin_information() {
 		echo '</p></div>';
 	} elseif ( ! $compatible_wp ) {
 		echo '<div class="notice notice-error notice-alt"><p>';
-		_e( '<strong>Error:</strong> This plugin <strong>requires a newer version of WordPress</strong>.' );
+		_e( '<strong>Error:</strong> This plugin <strong>requires a newer version of ClassicPress</strong>.' );
 		if ( current_user_can( 'update_core' ) ) {
 			printf(
-				/* translators: %s: "Update WordPress" screen URL */
-				' ' . __( '<a href="%s" target="_parent">Click here to update WordPress</a>.' ),
+				/* translators: %s: "Update ClassicPress" screen URL */
+				' ' . __( '<a href="%s" target="_parent">Click here to update ClassicPress</a>.' ),
 				self_admin_url( 'update-core.php' )
 			);
 		}
 		echo '</p></div>';
->>>>>>> 6d8e3c5864... Plugins: Use newer "Updating PHP" page URL in the notice displayed when a plugin requires a higher PHP version.
 	}
 
 	foreach ( (array) $api->sections as $section_name => $content ) {
