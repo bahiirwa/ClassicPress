@@ -21,12 +21,8 @@ final class WP_Theme implements ArrayAccess {
 	/**
 	 * Headers for style.css files.
 	 *
-<<<<<<< HEAD
-	 * @static
-=======
-	 * @since 3.4.0
-	 * @since 5.4.0 Added `Requires at least` and `Requires PHP` headers.
->>>>>>> 13a9ab716e... Site Health: Add support for required WordPress and PHP versions to themes.
+	 * @since WP-3.4.0
+	 * @since WP-5.4.0 Added `Requires at least` and `Requires PHP` headers.
 	 * @var array
 	 */
 	private static $file_headers = array(
@@ -655,26 +651,16 @@ final class WP_Theme implements ArrayAccess {
 	/**
 	 * Sanitize a theme header.
 	 *
-<<<<<<< HEAD
 	 * @since WP-3.4.0
-=======
-	 * @since 3.4.0
-	 * @since 5.4.0 Added support for `Requires at least` and `Requires PHP` headers.
->>>>>>> 13a9ab716e... Site Health: Add support for required WordPress and PHP versions to themes.
+	 * @since WP-5.4.0 Added support for `Requires at least` and `Requires PHP` headers.
 	 *
 	 * @staticvar array $header_tags
 	 * @staticvar array $header_tags_with_a
 	 *
-<<<<<<< HEAD
-	 * @param string $header Theme header. Name, Description, Author, Version, ThemeURI, AuthorURI, Status, Tags.
-	 * @param string $value Value to sanitize.
-	 * @return mixed
-=======
 	 * @param string $header Theme header. Accepts 'Name', 'Description', 'Author', 'Version',
 	 *                       'ThemeURI', 'AuthorURI', 'Status', 'Tags', 'RequiresWP', 'RequiresPHP'.
 	 * @param string $value  Value to sanitize.
 	 * @return string|array An array for Tags header, string otherwise.
->>>>>>> 13a9ab716e... Site Health: Add support for required WordPress and PHP versions to themes.
 	 */
 	private function sanitize_header( $header, $value ) {
 		switch ( $header ) {
@@ -714,13 +700,9 @@ final class WP_Theme implements ArrayAccess {
 			case 'Tags' :
 				$value = array_filter( array_map( 'trim', explode( ',', strip_tags( $value ) ) ) );
 				break;
-<<<<<<< HEAD
-			case 'Version' :
-=======
 			case 'Version':
 			case 'RequiresWP':
 			case 'RequiresPHP':
->>>>>>> 13a9ab716e... Site Health: Add support for required WordPress and PHP versions to themes.
 				$value = strip_tags( $value );
 				break;
 		}
