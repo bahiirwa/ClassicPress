@@ -29,15 +29,10 @@
  *    		must have the first slash. Defaults to the base folder the plugin is
  *    		located in.
  *     Network: Optional. Specify "Network: true" to require that a plugin is activated
-<<<<<<< HEAD
- *    		across all sites in an installation. This will prevent a plugin from being
- *    		activated on a single site when Multisite is enabled.
-=======
  *          across all sites in an installation. This will prevent a plugin from being
  *          activated on a single site when Multisite is enabled.
  *     Requires at least: Optional. Specify the minimum required WordPress version.
  *     Requires PHP: Optional. Specify the minimum required PHP version.
->>>>>>> 1f1cf751e5... Plugins: When validating plugin's WordPress and PHP requirements, check for `Requires at least` and `Requires PHP` headers in the plugin's main PHP file.
  *      * / # Remove the space to close comment
  *
  * Some users have issues with opening large files and manipulating the contents
@@ -52,12 +47,8 @@
  * the file. This is not checked however and the file is only opened for
  * reading.
  *
-<<<<<<< HEAD
  * @since WP-1.5.0
-=======
- * @since 1.5.0
- * @since 5.3.0 Added support for `Requires at least` and `Requires PHP`.
->>>>>>> 1f1cf751e5... Plugins: When validating plugin's WordPress and PHP requirements, check for `Requires at least` and `Requires PHP` headers in the plugin's main PHP file.
+ * @since WP-5.3.0 Added support for `Requires at least` and `Requires PHP`.
  *
  * @param string $plugin_file Path to the main plugin file.
  * @param bool   $markup      Optional. If the returned data should have HTML markup applied.
@@ -86,13 +77,6 @@ function get_plugin_data( $plugin_file, $markup = true, $translate = true ) {
 		'PluginURI' => 'Plugin URI',
 		'Version' => 'Version',
 		'Description' => 'Description',
-<<<<<<< HEAD
-		'Author' => 'Author',
-		'AuthorURI' => 'Author URI',
-		'TextDomain' => 'Text Domain',
-		'DomainPath' => 'Domain Path',
-		'Network' => 'Network',
-=======
 		'Author'      => 'Author',
 		'AuthorURI'   => 'Author URI',
 		'TextDomain'  => 'Text Domain',
@@ -100,7 +84,6 @@ function get_plugin_data( $plugin_file, $markup = true, $translate = true ) {
 		'Network'     => 'Network',
 		'RequiresWP'  => 'Requires at least',
 		'RequiresPHP' => 'Requires PHP',
->>>>>>> 1f1cf751e5... Plugins: When validating plugin's WordPress and PHP requirements, check for `Requires at least` and `Requires PHP` headers in the plugin's main PHP file.
 		// Site Wide Only is deprecated in favor of Network.
 		'_sitewide' => 'Site Wide Only',
 	);
@@ -1017,10 +1000,6 @@ function validate_plugin_requirements( $plugin ) {
 		);
 	}
 
-<<<<<<< HEAD
-	$plugin_data['wp_compatible']  = wp_is_wp_compatible( $plugin_data['requires'] );
-	$plugin_data['php_compatible'] = wp_is_php_compatible( $plugin_data['requires_php'] );
-=======
 	$plugin_data = array_merge( $plugin_data, get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin ) );
 
 	// Check for headers in the plugin's PHP file, give precedence to the plugin headers.
@@ -1029,7 +1008,6 @@ function validate_plugin_requirements( $plugin ) {
 
 	$plugin_data['wp_compatible']  = is_wp_version_compatible( $plugin_data['requires'] );
 	$plugin_data['php_compatible'] = is_php_version_compatible( $plugin_data['requires_php'] );
->>>>>>> 1f1cf751e5... Plugins: When validating plugin's WordPress and PHP requirements, check for `Requires at least` and `Requires PHP` headers in the plugin's main PHP file.
 
 	if ( ! $plugin_data['wp_compatible'] && ! $plugin_data['php_compatible'] ) {
 		return new WP_Error( 'plugin_wp_php_incompatible', sprintf(
