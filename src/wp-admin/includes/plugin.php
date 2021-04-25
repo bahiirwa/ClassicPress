@@ -520,12 +520,8 @@ function is_network_only_plugin( $plugin ) {
  * If any errors are found or text is outputted, then it will be captured to
  * ensure that the success redirection will update the error redirection.
  *
-<<<<<<< HEAD
  * @since WP-2.5.0
-=======
- * @since 2.5.0
- * @since 5.2.0 Test for WordPress version and PHP version compatibility.
->>>>>>> 1586c43c8d... Plugins: Block plugin activation if it requires a higher version of PHP or WordPress.
+ * @since WP-5.2.0 Test for WordPress version and PHP version compatibility.
  *
  * @param string $plugin       Path to the main plugin file from plugins directory.
  * @param string $redirect     Optional. URL to redirect to.

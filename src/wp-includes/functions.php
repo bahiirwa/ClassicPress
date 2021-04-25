@@ -6127,8 +6127,6 @@ function wp_privacy_delete_old_export_files() {
 		}
 	}
 }
-<<<<<<< HEAD
-=======
 
 /**
  * Gets the URL to learn more about updating the PHP version the site is running on.
@@ -6312,4 +6310,3 @@ function wp_is_wp_compatible( $required ) {
 function wp_is_php_compatible( $required ) {
 	return empty( $required ) || version_compare( phpversion(), $required, '>=' );
 }
->>>>>>> 1586c43c8d... Plugins: Block plugin activation if it requires a higher version of PHP or WordPress.
