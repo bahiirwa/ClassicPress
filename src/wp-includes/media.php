@@ -1430,8 +1430,6 @@ function wp_image_add_srcset_and_sizes( $image, $image_meta, $attachment_id ) {
 		if ( is_string( $sizes ) ) {
 			$attr .= sprintf( ' sizes="%s"', esc_attr( $sizes ) );
 		}
-<<<<<<< HEAD
-=======
 	}
 
 	if ( empty( $attr ) ) {
@@ -1576,8 +1574,6 @@ function wp_img_tag_add_loading_attr( $image, $context ) {
 		if ( ! in_array( $value, array( 'lazy', 'eager' ), true ) ) {
 			$value = 'lazy';
 		}
->>>>>>> 8b67473da6... Docs: Standardize on "Returning a value from the filter" vs. "Passing a value to the filter".
-
 		// Add 'srcset' and 'sizes' attributes to the image markup.
 		$image = preg_replace( '/<img ([^>]+?)[\/ ]*>/', '<img $1' . $attr . ' />', $image );
 	}

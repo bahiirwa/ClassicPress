@@ -609,22 +609,13 @@ function strip_fragment_from_url( $url ) {
 function redirect_guess_404_permalink() {
 	global $wpdb;
 
-<<<<<<< HEAD
-	if ( get_query_var('name') ) {
-		$where = $wpdb->prepare("post_name LIKE %s", $wpdb->esc_like( get_query_var('name') ) . '%');
-
-		// if any of post_type, year, monthnum, or day are set, use them to refine the query
-		if ( get_query_var('post_type') )
-			$where .= $wpdb->prepare(" AND post_type = %s", get_query_var('post_type'));
-		else
-=======
 	/**
 	 * Filters whether to attempt to guess a redirect URL for a 404 request.
 	 *
 	 * Returning a false value from the filter will disable the URL guessing
 	 * and return early without performing a redirect.
 	 *
-	 * @since 5.5.0
+	 * @since WP-5.5.0
 	 *
 	 * @param bool $do_redirect_guess Whether to attempt to guess a redirect URL
 	 *                                for a 404 request. Default true.
@@ -639,7 +630,7 @@ function redirect_guess_404_permalink() {
 	 * Returning a non-null value from the filter will effectively short-circuit
 	 * the URL guessing, returning the passed value instead.
 	 *
-	 * @since 5.5.0
+	 * @since WP-5.5.0
 	 *
 	 * @param null|string|false $pre Whether to short-circuit guessing the redirect for a 404.
 	 *                               Default null to continue with the URL guessing.
@@ -655,7 +646,7 @@ function redirect_guess_404_permalink() {
 		 *
 		 * Returning a truthy value from the filter will redirect only exact post_name matches.
 		 *
-		 * @since 5.5.0
+		 * @since WP-5.5.0
 		 *
 		 * @param bool $strict_guess Whether to perform a strict guess. Default false (loose guess).
 		 */
@@ -671,9 +662,8 @@ function redirect_guess_404_permalink() {
 		if ( get_query_var( 'post_type' ) ) {
 			$where .= $wpdb->prepare( ' AND post_type = %s', get_query_var( 'post_type' ) );
 		} else {
->>>>>>> 8b67473da6... Docs: Standardize on "Returning a value from the filter" vs. "Passing a value to the filter".
 			$where .= " AND post_type IN ('" . implode( "', '", get_post_types( array( 'public' => true ) ) ) . "')";
-
+		}
 		if ( get_query_var('year') )
 			$where .= $wpdb->prepare(" AND YEAR(post_date) = %d", get_query_var('year'));
 		if ( get_query_var('monthnum') )

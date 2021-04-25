@@ -2164,13 +2164,8 @@ function wp_upload_bits( $name, $deprecated, $bits, $time = null ) {
 	/**
 	 * Filters whether to treat the upload bits as an error.
 	 *
-<<<<<<< HEAD
-	 * Passing a non-array to the filter will effectively short-circuit preparing
-	 * the upload bits, returning that value instead.
-=======
 	 * Returning a non-array from the filter will effectively short-circuit preparing the upload bits
 	 * and return that value instead. An error message should be returned as a string.
->>>>>>> 8b67473da6... Docs: Standardize on "Returning a value from the filter" vs. "Passing a value to the filter".
 	 *
 	 * @since WP-3.0.0
 	 *
