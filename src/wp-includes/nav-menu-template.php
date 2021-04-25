@@ -74,9 +74,14 @@ function wp_nav_menu( $args = array() ) {
 	/**
 	 * Filters whether to short-circuit the wp_nav_menu() output.
 	 *
+<<<<<<< HEAD
 	 * Returning a non-null value to the filter will short-circuit
 	 * wp_nav_menu(), echoing that value if $args->echo is true,
 	 * returning that value otherwise.
+=======
+	 * Returning a non-null value from the filter will short-circuit wp_nav_menu(),
+	 * echoing that value if $args->echo is true, returning that value otherwise.
+>>>>>>> 8b67473da6... Docs: Standardize on "Returning a value from the filter" vs. "Passing a value to the filter".
 	 *
 	 * @since WP-3.9.0
 	 *

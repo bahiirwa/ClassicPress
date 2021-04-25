@@ -782,9 +782,15 @@ function wp_allow_comment( $commentdata, $avoid_die = false ) {
 	/**
 	 * Filters a comment's approval status before it is set.
 	 *
+<<<<<<< HEAD
 	 * @since WP-2.1.0
 	 * @since WP-4.9.0 Returning a WP_Error value from the filter will shortcircuit comment insertion and
 	 *              allow skipping further processing.
+=======
+	 * @since 2.1.0
+	 * @since 4.9.0 Returning a WP_Error value from the filter will short-circuit comment insertion
+	 *              and allow skipping further processing.
+>>>>>>> 8b67473da6... Docs: Standardize on "Returning a value from the filter" vs. "Passing a value to the filter".
 	 *
 	 * @param bool|string|WP_Error $approved    The approval status. Accepts 1, 0, 'spam' or WP_Error.
 	 * @param array                $commentdata Comment data.
